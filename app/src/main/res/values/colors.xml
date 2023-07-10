@@ -5,8 +5,33 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
 
-    <color name="CianBrillante">#FFFFF0</color>
+    <color name="black">#FF000000</color>
+    <color name="NegroTransparente">#9F000000</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="BlancoAmarillo">#FFFFF0</color>
+    <color name="Transparente">#00FFFFFF</color>
+
+    <color name="CianPastel">#74d4d4</color>
+
+    <color name="NaranjaBrillante">#FCB024</color>
+    <color name="NaranjaBrillantePastel">#FBC288</color>
+
+    /*Escala de verdes*/
+    <color name="VerdeBrillante">#98ef7d</color>
+    <color name="VerdePastel">#A3E98D</color>
+    <color name="VerdePastelClaro">#BAEEA6</color>
+    <color name="VerdeTraslucido">#D1F4BF</color>
+    <color name="VerdeClaro">#E8F9D7</color>
+
+    /*Paleta de azules a verde*/
+    <color name="AzulBrillante">#0071B1</color>
+    <color name="AzulBrillanteClaro">#0086B1</color>
+    <color name="CianOscuro">#009BB1</color>
+    <color name="CianBrillante">#00B1B1</color>
+    <color name="CianVivido">#00B19B</color>
+    <color name="Esmeralda">#00B186</color>
+    <color name="VerdeVivido">#00B171</color>
+
 </resources>
