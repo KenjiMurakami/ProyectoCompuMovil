@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "440474190098",
+    "project_id": "proyectocompumovil-86516",
+    "storage_bucket": "proyectocompumovil-86516.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440474190098:android:6a59da216b94c8ed5c73cb",
+        "android_client_info": {
+          "package_name": "com.example.proyectocompumovil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440474190098-pjaek1o45oge8k3gsr10qb8qnd16sros.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1pDNZEfPgkWeEReouCU4LnaEBnBk37oQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440474190098-pjaek1o45oge8k3gsr10qb8qnd16sros.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
