@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
 import android.widget.LinearLayout
+import com.google.firebase.auth.FirebaseAuth
 import kotlin.properties.Delegates
 
 class LoginActivity : AppCompatActivity() {
@@ -22,6 +23,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etEmail: EditText
     private lateinit var etPassword: EditText
     private lateinit var lyTerms: LinearLayout
+
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
