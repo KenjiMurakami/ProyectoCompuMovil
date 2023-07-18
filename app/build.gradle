@@ -1,8 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-
-    id("com.google.gms.google-services")
+    //se agregó el nuevo id para disponer de los servicios de google
+    id ("com.google.gms.google-services")
 }
 
 android {
@@ -44,21 +44,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    /*Código de implementación de la Firebase*/
-    implementation(platform("implementationcom.google.firebase:firebase-bom:32.1.1"))
+    //Linea de codigo para implementar la base de datos
+    implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
 
-
-    //Código para cambios en la data
-    implementation("com.google.firebase:firebase-analytics-ktx")
-
-    //servicios con ktx (Librerías)
-    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
-    implementation 'com.google.firebase:firebase-database-ktx:20.2.2'
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.1'
-
-    //Servicios de firebase para autenticar
-    //implementation(platform("implementationcom.google.firebase:firebase-bom:29.2.8"))
-    //implementation 'com.google.firebase:firebase-auth:21.0.2'
-    //implementation 'com.google.firebase:firebase-database:20.0.4'
-    //implementation 'com.google.firebase:firebase-firestone:24.0.2'
 }
+

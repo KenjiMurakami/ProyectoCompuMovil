@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "440474190098",
-    "project_id": "proyectocompumovil-86516",
-    "storage_bucket": "proyectocompumovil-86516.appspot.com"
+    "project_number": "190030776033",
+    "project_id": "carreraanimal-75f1c",
+    "storage_bucket": "carreraanimal-75f1c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:440474190098:android:6a59da216b94c8ed5c73cb",
+        "mobilesdk_app_id": "1:190030776033:android:4df9feb4a962b18a5759a0",
         "android_client_info": {
           "package_name": "com.example.proyectocompumovil"
         }
       },
       "oauth_client": [
         {
-          "client_id": "440474190098-pjaek1o45oge8k3gsr10qb8qnd16sros.apps.googleusercontent.com",
+          "client_id": "190030776033-uuvha0n1f4jsiflbelodc3l5qq3803uj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB1pDNZEfPgkWeEReouCU4LnaEBnBk37oQ"
+          "current_key": "AIzaSyCybUeZWTvo6zbfW2DQsHCyfZ9qDRYplGk"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "440474190098-pjaek1o45oge8k3gsr10qb8qnd16sros.apps.googleusercontent.com",
+              "client_id": "190030776033-uuvha0n1f4jsiflbelodc3l5qq3803uj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
