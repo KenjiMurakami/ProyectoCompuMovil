@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">ProyectoCompuMovil</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="forgotPassword">¿Olvidaste tu contraseña?</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="resetPassword">Enviar contraseña</string>
+    <string name="invitation"> Testeo</string>
+    <string name="acept">He leído y acepto términos y condiciones</string>
+    <string name="terms">Terminos y condiciones de uso</string>
+
+    <string name="empty_email">Introducir un email</string>
+    <string name="invalid_email">Email inválido</string>
+
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+
 </resources>

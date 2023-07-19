@@ -5,6 +5,123 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:orientation="vertical"
+    android:background="@color/BlancoAmarillo">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="207dp"
+        app:srcCompat="@mipmap/banner"/>
+
+    <TextView
+        android:id="@+id/txtInvitation"
+        style="@style/viewCustom"
+        android:paddingTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="@string/invitation"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:textColor="@color/NaranjaBrillante"/>
+
+    <EditText
+        android:id="@+id/etEmail"
+        style="@style/viewCustom"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingTop="30dp"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:backgroundTint="@color/black"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        style="@style/viewCustom"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingTop="30dp"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:backgroundTint="@color/black"/>
+
+    <TextView
+        android:id="@+id/btnLogin"
+        style="@style/viewCustom"
+        android:background="@color/VerdePastelClaro"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:textAlignment="center"
+        android:text="@string/login"
+        android:textColor="@color/VerdeVivido"
+        android:textStyle="bold"
+        android:onClick="login"/>
+
+    <TextView
+        android:id="@+id/txtForgotPassword"
+        style="@style/viewCustom"
+        android:layout_below="@id/btnLogin"
+        android:onClick="forgotPassword"
+        android:paddingTop="0dp"
+        android:gravity="center_horizontal"
+        android:text="@string/forgotPassword"
+        android:textSize="12sp"
+        android:textColor="@color/GrisOscuro"/>
+
+    <LinearLayout
+        android:id="@+id/lyTerms"
+        style="@style/viewCustom"
+        android:orientation="horizontal"
+        android:background="@color/Transparente">
+        <CheckBox
+            android:id="@+id/cbAcept"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="10sp"
+            android:text="@string/acept"
+            android:textColor="@color/GrisFuerte"/>
+        <TextView
+            android:id="@+id/tvTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/terms"
+            android:textSize="10sp"
+            android:textColor="@color/NaranjaBrillante"
+            android:layout_marginLeft="5dp"
+            android:onClick="goTerms"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSingGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="125dp"
+        android:layout_marginRight="125dp"
+        android:backgroundTint="@color/VerdePastelClaro"
+        android:drawableLeft="@drawable/google"
+        android:text="@string/google"
+        android:textAlignment="textStart"
+        android:textColor="@color/VerdeVivido"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"/>
+
+    <Button
+        android:id="@+id/btnSingFacebook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="125dp"
+        android:layout_marginRight="125dp"
+        android:backgroundTint="@color/VerdePastelClaro"
+        android:drawableLeft="@drawable/facebook"
+        android:text="@string/facebook"
+        android:textAlignment="textStart"
+        android:textColor="@color/VerdeVivido"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:paddingLeft="5.9dp"/>
 
 </LinearLayout>
