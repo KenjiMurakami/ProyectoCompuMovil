@@ -12,6 +12,9 @@
         android:theme="@style/Theme.ProyectoCompuMovil"
         tools:targetApi="31">
         <activity
+            android:name=".RecordActivity"
+            android:exported="false" />
+        <activity
             android:name=".TermsActivity"
             android:exported="false" />
         <activity
