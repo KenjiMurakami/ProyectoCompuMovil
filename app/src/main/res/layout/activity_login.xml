@@ -47,7 +47,7 @@
         android:backgroundTint="@color/black"/>
 
     <TextView
-        android:id="@+id/btnLogin"
+        android:id="@+id/tvLogin"
         style="@style/viewCustom"
         android:background="@color/VerdePastelClaro"
         android:layout_height="wrap_content"
@@ -63,7 +63,6 @@
     <TextView
         android:id="@+id/txtForgotPassword"
         style="@style/viewCustom"
-        android:layout_below="@id/btnLogin"
         android:onClick="forgotPassword"
         android:paddingTop="0dp"
         android:gravity="center_horizontal"
@@ -87,7 +86,7 @@
             android:id="@+id/tvTerms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/terms"
+            android:text="@string/bar_title_terms"
             android:textSize="10sp"
             android:textColor="@color/NaranjaBrillante"
             android:layout_marginLeft="5dp"
@@ -107,7 +106,8 @@
         android:textColor="@color/VerdeVivido"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:paddingLeft="20dp"/>
+        android:paddingLeft="20dp"
+        android:onClick="callSignInGoogle"/>
 
     <Button
         android:id="@+id/btnSingFacebook"
@@ -122,6 +122,7 @@
         android:textColor="@color/VerdeVivido"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:paddingLeft="5.9dp"/>
+        android:paddingLeft="5.9dp"
+        android:onClick="callSignInFacebook"/>
 
 </LinearLayout>
