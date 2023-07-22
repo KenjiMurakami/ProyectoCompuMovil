@@ -41,5 +41,8 @@
     <color name="GrisFuerte">#5B5B5B</color>
     <color name="GrisOscuro">#2B2A29</color>
     <color name="GrisTransparente">#9Ff7f7f7</color>
+    <color name="gray_light">#f7f7f7</color>
+    <color name="gray_dark">#2B2A29</color>
+    <color name="gray">#D8D8D8</color>
 
 </resources>
