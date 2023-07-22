@@ -3,12 +3,17 @@ package com.example.proyectocompumovil
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
+import androidx.core.content.ContextCompat
+import androidx.core.widget.doOnTextChanged
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
@@ -33,6 +38,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var lyTerms: LinearLayout
 
     private lateinit var mAuth: FirebaseAuth
+    private var RESULT_CODE_GOOGLE_SIGN_IN = 100
+    //private val callbackManager = CallbackManager.Factory.create()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +51,10 @@ class LoginActivity : AppCompatActivity() {
         etEmail = findViewById(R.id.etEmail)
         etPassword = findViewById(R.id.etPassword)
         mAuth = FirebaseAuth.getInstance()
+
+        manageButtonLogin()
+        etEmail.doOnTextChanged { text, start, before, count ->  manageButtonLogin() }
+        etPassword.doOnTextChanged { text, start, before, count ->  manageButtonLogin() }
     }
 
     //verificacion en la base de datos
@@ -60,6 +71,20 @@ class LoginActivity : AppCompatActivity() {
         startMain.addCategory(Intent.CATEGORY_HOME)
         startMain.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(startMain)
+    }
+
+    private fun manageButtonLogin(){
+        var tvLogin = findViewById<TextView>(R.id.tvLogin)
+        email = etEmail.text.toString()
+        password = etPassword.text.toString()
+        if (TextUtils.isEmpty(password) || ValidateEmail.isEmail(email) == false){
+            tvLogin.setBackgroundColor(ContextCompat.getColor(this, R.color.Gris))
+            tvLogin.isEnabled = false
+        }
+        else{
+            tvLogin.setBackgroundColor(ContextCompat.getColor(this, R.color.VerdeTraslucido))
+            tvLogin.isEnabled = true
+        }
     }
 
     fun login(view: View){
@@ -87,6 +112,8 @@ class LoginActivity : AppCompatActivity() {
 
 
     private fun goHome(email: String, provider: String){
+        useremail = email
+        providerSession = provider
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
@@ -94,28 +121,104 @@ class LoginActivity : AppCompatActivity() {
     private fun register(){
         email = etEmail.text.toString()
         password = etPassword.text.toString()
-
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                if(it.isSuccessful){
+                if (it.isSuccessful){
                     var dateRegister = SimpleDateFormat("dd/MM/yyyy").format(Date())
                     var dbRegister = FirebaseFirestore.getInstance()
                     dbRegister.collection("users").document(email).set(hashMapOf(
                         "user" to email,
-                        "dataRegister" to dateRegister
+                        "dateRegister" to dateRegister
                     ))
-                    goHome(email,"email")
+                    goHome(email, "email")
                 }
-                else Toast.makeText(this,"Ha ocurrido un error en el registro", Toast.LENGTH_SHORT).show()
+                else Toast.makeText(this, "Error al momento de registrar usuario", Toast.LENGTH_SHORT).show()
             }
     }
 
-     fun goTerms(v: View){
-         val intent = Intent(this, TermsActivity::class.java)
-         startActivity(intent)
-     }
-
-    fun forgotPassword(view: View){
-        startActivity(Intent(this, ForgotPasswordActivity::class.java))
+    fun goTerms(v: View){
+        val intent = Intent(this, TermsActivity::class.java)
+        startActivity(intent)
     }
+
+    fun forgotPassword(view: View) {
+        //startActivity(Intent(this, ForgotPasswordActivity::class.java))
+        resetPassword()
+    }
+
+    private fun resetPassword(){
+        var e = etEmail.text.toString()
+        //Librería textUtils para validación de cadena de texto
+        if (!TextUtils.isEmpty(e)){
+            mAuth.sendPasswordResetEmail(e)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) Toast.makeText(this, "Email Enviado a $e", Toast.LENGTH_SHORT).show()
+                    else Toast.makeText(this, "No se encontró el usuario con este correo", Toast.LENGTH_SHORT).show()
+                }
+        }
+        else Toast.makeText(this, "Indica un email", Toast.LENGTH_SHORT).show()
+    }
+
+    fun callSignInGoogle (view:View){
+        signInGoogle()
+    }
+    fun callSignInFacebook (view:View){
+        //signInFacebook()
+    }
+
+    /*private fun signInFacebook(){
+        LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"))
+        LoginManager.getInstance().registerCallback(callbackManager, object :
+            FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult) {
+                result.let{
+                    val token = it.accessToken
+                    val credential = FacebookAuthProvider.getCredential(token.token)
+                    mAuth.signInWithCredential(credential).addOnCompleteListener {
+                        if (it.isSuccessful){
+                            email = it.result.user?.email.toString()
+                            goHome(email, "Facebook")
+                        }
+                        else showError("Facebook")
+                    }
+                }
+                //handleFacebookAccessToken(loginResult.accessToken)
+            }
+     */
+    private fun signInGoogle(){
+            // Configure Google Sign In
+            val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+            var googleSignInClient = GoogleSignIn.getClient(this, gso)
+            googleSignInClient.signOut()
+            startActivityForResult(googleSignInClient.signInIntent, RESULT_CODE_GOOGLE_SIGN_IN)
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (requestCode == RESULT_CODE_GOOGLE_SIGN_IN) {
+            try {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+                // Google Sign In was successful, authenticate with Firebase
+                val account = task.getResult(ApiException::class.java)!!
+                if (account != null){
+                    email = account.email!!
+                    val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+                    mAuth.signInWithCredential(credential).addOnCompleteListener{
+                        if (it.isSuccessful) goHome(email, "Google")
+                        else Toast.makeText(this, "Error en la conexión con Google", Toast.LENGTH_SHORT)
+                    }
+                }
+            } catch (e: ApiException) {
+                Toast.makeText(this, "Error en la conexión con Google", Toast.LENGTH_SHORT)
+            }
+        }
+
+    }
+
+
+
 }
