@@ -7,12 +7,19 @@
     android:orientation="vertical"
     android:background="@color/BlancoAmarillo">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_terms"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/NaranjaBrillante"
+        android:elevation="2dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
     <TextView
         android:id="@+id/terms"
         style="@style/viewCustom"
         android:paddingTop="20dp"
         android:gravity="center_horizontal"
-        android:text="@string/terms"
+        android:text="@string/bar_title_terms"
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/black"/>
@@ -41,4 +48,31 @@
         android:text="@string/terms3"
         android:textSize="12sp"
         android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/aceptar"
+        style="@style/viewCustom"
+        android:background="@color/GrisFuerte"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:textAlignment="center"
+        android:text="@string/btnacept"
+        android:textColor="@color/VerdeVivido"
+        android:textStyle="bold"
+        android:onClick="login"/>
+    <TextView
+        android:id="@+id/cerrar"
+        style="@style/viewCustom"
+        android:background="@color/NegroTransparente"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:textAlignment="center"
+        android:text="@string/btncerrar"
+        android:textColor="@color/VerdeVivido"
+        android:textStyle="bold"
+        android:onClick="login"/>
 </LinearLayout>
