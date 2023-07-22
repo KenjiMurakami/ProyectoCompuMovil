@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">ProyectoCompuMovil</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="forgotPassword">¿Olvidaste tu contraseña?</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="resetPassword">Enviar contraseña</string>
+    <string name="invitation"> Testeo</string>
+    <string name="acept">He leído y acepto términos y condiciones</string>
+    <string name="terms">Terminos y condiciones de uso</string>
+
+    <string name="empty_email">Introducir un email</string>
+    <string name="invalid_email">Email inválido</string>
+
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+
+    <string name="terms1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis odio sit amet tristique consectetur. Suspendisse potenti. Maecenas congue nunc in nisl elementum, id facilisis dui tempus. Nullam euismod turpis nec justo volutpat, eu facilisis odio accumsan. Proin ullamcorper purus non semper efficitur. Nullam at erat euismod, sagittis nisi a, maximus dui. Nam vel velit vel lorem scelerisque rutrum. Sed nec erat auctor, commodo urna a, facilisis erat. Integer nec tortor quis lectus dapibus malesuada.</string>
+    <string name="terms2">Sed ultrices, tortor sit amet fermentum venenatis, nunc tortor feugiat quam, eu sollicitudin erat arcu sit amet ipsum. Vivamus vel aliquam quam, ut consequat nisi. Aenean aliquet arcu nec augue fringilla, vel finibus tellus cursus. Nunc ultrices luctus nisi, non interdum justo consequat nec. Etiam eleifend mi nisl, vel dapibus enim convallis id. Sed sit amet massa vitae est tincidunt iaculis. Nulla facilisi. Etiam sit amet nisi eget lectus varius luctus ac vitae nulla. Nullam vulputate arcu nec tortor feugiat tincidunt.</string>
+    <string name="terms3">In in justo quis nunc sollicitudin laoreet. Donec non luctus velit. Nullam nec eros vel massa tincidunt venenatis. Sed convallis lorem quis purus sollicitudin, nec luctus enim dignissim. Suspendisse tincidunt tincidunt velit, nec vulputate ex. Ut malesuada volutpat neque, at sagittis dolor malesuada ut. Fusce dapibus semper turpis, ac facilisis nibh scelerisque a estoy añadiendo un poco más para que llegue al otro margen siuuuuu.</string>
+    <string name="terms4">Nunc eleifend, orci a laoreet auctor, neque est finibus est, vel suscipit massa nisi nec erat. Suspendisse potenti. Suspendisse laoreet odio ligula, nec sagittis sem fermentum non. Sed pellentesque mauris ac odio ultricies dictum. Curabitur in bibendum velit. Etiam interdum mi vel risus scelerisque, eu bibendum quam ultrices. Vivamus vehicula lacus nec cursus laoreet. Sed condimentum malesuada eros, nec tempor nisl ullamcorper eu. Suspendisse eget nisi euismod, posuere lectus in, suscipit ligula. Integer non odio ac elit cursus luctus eu vel velit. Aenean rhoncus eu odio id luctus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis a velit volutpat, lobortis sapien eu, feugiat erat. Sed sit amet risus vestibulum, dapibus mi eget, convallis tellus. Fusce cursus orci sit amet eleifend malesuada. Nam hendrerit elit eu ipsum eleifend, nec vehicula sem tristique.</string>
+
 </resources>
