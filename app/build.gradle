@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     //se agregó el nuevo id para disponer de los servicios de google
-    id ("com.google.gms.google-services")
+    id 'com.google.gms.google-services'
 }
 
 android {
