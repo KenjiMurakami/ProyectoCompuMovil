@@ -277,13 +277,18 @@ class MainActivity : AppCompatActivity(),
     private var chronometer: Runnable = object : Runnable {
         override fun run() {
             try {
-
+                timeInSeconds +=1
+                updateStopWatchView()
             }finally {
                 mHandler!!.postDelayed(this, mInterval.toLong())
             }
         }
     }
 
+    //Funcion update
+    private fun updateStopWatchView(){
+        tvChrono.text = getFormattedStopWatch(timeInSeconds * 1000)
+    }
     private fun hidePopUpRun(){
         var lyWindow = findViewById<LinearLayout>(R.id.lyWindow)
         lyWindow.translationX = 400f
