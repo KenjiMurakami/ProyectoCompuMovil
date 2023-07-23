@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -273,6 +274,30 @@ class MainActivity : AppCompatActivity(),
         }
     }
 
+
+    //Funcion que administra la carrera
+    fun startOrStopButtonClicked(v: View){
+        manageRun()
+    }
+    private fun manageRun(){
+
+        if(!starButtonClicked){
+            starButtonClicked = true
+
+            starTime()
+        }
+        else{
+            starButtonClicked = false
+            stopTime()
+        }
+    }
+    private fun starTime(){
+        mHandler = Handler(Looper.getMainLooper())
+        chronometer.run()
+    }
+    private fun stopTime(){
+        mHandler?.removeCallbacks(chronometer)
+    }
     //Variable para iniciar
     private var chronometer: Runnable = object : Runnable {
         override fun run() {
