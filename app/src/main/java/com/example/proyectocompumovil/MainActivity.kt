@@ -3,6 +3,7 @@ package com.example.proyectocompumovil
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -36,6 +37,13 @@ class MainActivity : AppCompatActivity(),
     private var challengeDuration: Int = 0
     private lateinit var tvChrono: TextView
     private lateinit var csbRunWalk: CircularSeekBar
+
+    private var mHandler: Handler? = null
+    //variable para controlar el tiempo en segundos
+    private var timeInSeconds = 0L
+    //Variable para determinar si es que se pulso el botón
+    private var starButtonClicked = false
+
 
     private var widthScreenPixels: Int = 0
     private var heightScreenPixels: Int = 0
