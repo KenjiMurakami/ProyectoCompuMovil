@@ -454,6 +454,9 @@ class MainActivity : AppCompatActivity(),
                             csbRunWalk.progress = csbRunWalk.progress + set
                     }
                 }
+                if (csbRunWalk.progress == 0f) manageEnableButtonsRun(false, false)
+                else manageEnableButtonsRun(false, true)
+
                 tvRunningTime.text = getFormattedStopWatch((csbRunWalk.progress.toInt() *1000).toLong()).subSequence(3,8)
                 tvWalkingTime.text = getFormattedStopWatch(((ROUND_INTERVAL- csbRunWalk.progress.toInt())*1000).toLong()).subSequence(3,8)
                 TIME_RUNNING = getSecFromWatch(tvRunningTime.text.toString())
