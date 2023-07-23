@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity(),
     private lateinit var csbRunWalk: CircularSeekBar
 
     private var mHandler: Handler? = null
+    //Valor de intervalo de 1 segundo
+    private var mInterval = 1000
     //variable para controlar el tiempo en segundos
     private var timeInSeconds = 0L
     //Variable para determinar si es que se pulso el botón
@@ -268,6 +270,17 @@ class MainActivity : AppCompatActivity(),
             swVolumes.setTextColor(ContextCompat.getColor(this, R.color.white))
             setHeightLinearLayout(lySettingsVolumesSpace,0)
             lySettingsVolumes.translationY = -300f
+        }
+    }
+
+    //Variable para iniciar
+    private var chronometer: Runnable = object : Runnable {
+        override fun run() {
+            try {
+
+            }finally {
+                mHandler!!.postDelayed(this, mInterval.toLong())
+            }
         }
     }
 
