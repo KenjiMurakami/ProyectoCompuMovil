@@ -283,14 +283,46 @@ class MainActivity : AppCompatActivity(),
 
         if(!starButtonClicked){
             starButtonClicked = true
-
             starTime()
+            manageEnableButtonsRun(e_run = false, e_reset = true)
         }
         else{
             starButtonClicked = false
             stopTime()
+            manageEnableButtonsRun(e_run = true, e_reset = true)
         }
     }
+
+    //Administrador de botones para evaluar ciertas condiciones
+    private fun manageEnableButtonsRun(e_reset: Boolean, e_run: Boolean){
+        val tvReset = findViewById<TextView>(R.id.tvReset)
+        val btStart = findViewById<LinearLayout>(R.id.btStart)
+        val btStartLabel = findViewById<TextView>(R.id.btStartLabel)
+        tvReset.setEnabled(e_reset)
+        btStart.setEnabled(e_run)
+
+        if(e_reset){
+            tvReset.setBackgroundColor(ContextCompat.getColor(this, R.color.VerdeBrillante))
+            animateViewofFloat(tvReset, "translationY", 0f, 500)
+        }
+        else{
+            tvReset.setBackgroundColor(ContextCompat.getColor(this, R.color.gray))
+            animateViewofFloat(tvReset, "translationY", 150f, 500)
+        }
+
+        if(e_run){
+            if(starButtonClicked){
+                btStart.background = getDrawable(R.drawable.circle_background_topause)
+                btStartLabel.setText(R.string.stop)
+            }
+            else{
+                btStart.background = getDrawable(R.drawable.circle_background_toplay)
+                btStartLabel.setText(R.string.start)
+            }
+        }
+        else btStart.background = getDrawable(R.drawable.circle_background_todisable)
+    }
+
     private fun starTime(){
         mHandler = Handler(Looper.getMainLooper())
         chronometer.run()
