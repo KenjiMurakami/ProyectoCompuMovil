@@ -194,6 +194,9 @@ class LoginActivity : AppCompatActivity() {
             var googleSignInClient = GoogleSignIn.getClient(this, gso)
             googleSignInClient.signOut()
             startActivityForResult(googleSignInClient.signInIntent, RESULT_CODE_GOOGLE_SIGN_IN)
+
+
+
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
