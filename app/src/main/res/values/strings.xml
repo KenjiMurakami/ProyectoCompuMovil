@@ -23,7 +23,7 @@
     <string name="btnacept">Acepto</string>
     <string name="btncerrar">Cancelar</string>
 
-    <string name="bar_title">Título de bar</string>
+    <string name="bar_title">Alegría Macarena</string>
     <string name="menu_running">Carreras</string>
     <string name="menu_record">Historial de carreras</string>
     <string name="menu_becamepremium">Hazte Premium</string>
@@ -32,8 +32,8 @@
     <string name="menu_offercourse">Testing</string>
 
     <string name="level">Nivel</string>
-    <string name="nav_hi">Test</string>
-    <string name="user"></string>
+    <string name="nav_hi">Mueve las piernes, mueve el corazón</string>
+    <string name="user">alfredQ}@gamil.com</string>
 
 
     <string name="navigation_drawer_open">Menu</string>
