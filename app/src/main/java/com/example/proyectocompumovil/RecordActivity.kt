@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.core.content.ContextCompat
 
+@Suppress("DEPRECATION")
 class RecordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

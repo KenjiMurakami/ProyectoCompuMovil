@@ -23,8 +23,7 @@ import com.example.proyectocompumovil.Utility.setHeightLinearLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import me.tankery.lib.circularseekbar.CircularSeekBar
-class MainActivity : AppCompatActivity(),
-    NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
     private lateinit var swIntervalMode: Switch
