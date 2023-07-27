@@ -160,7 +160,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             animateViewofInt(
                 tvRounds,
                 "textColor",
-                ContextCompat.getColor(this, R.color.white),
+                ContextCompat.getColor(this, R.color.NaranjaBrillante),
                 500
             )
 
