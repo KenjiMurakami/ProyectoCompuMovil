@@ -1,5 +1,6 @@
 package com.example.proyectocompumovil
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,9 +24,11 @@ import com.example.proyectocompumovil.Utility.setHeightLinearLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import me.tankery.lib.circularseekbar.CircularSeekBar
+@Suppress("UNUSED_PARAMETER")
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     private lateinit var swIntervalMode: Switch
     private lateinit var swChallenges: Switch
     private lateinit var swVolumes: Switch
@@ -279,7 +282,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         manageRun()
     }
     private fun manageRun(){
+        if(timeInSeconds.toInt() == 0){
 
+
+            swIntervalMode.isClickable = false
+            npDurationInterval.isEnabled = false
+            csbRunWalk.isEnabled = false
+
+            swChallenges.isClickable = false
+            npChallengeDistance.isEnabled = false
+            npChallengeDurationHH.isEnabled = false
+            npChallengeDurationMM.isEnabled = false
+            npChallengeDurationSS.isEnabled = false
+
+            tvChrono.setTextColor(ContextCompat.getColor(this, R.color.NaranjaBrillante))
+        }
         if(!starButtonClicked){
             starButtonClicked = true
             starTime()
@@ -542,5 +559,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val lyRoundProgressBg = findViewById<LinearLayout>(R.id.lyRoundProgressBg)
         lyChronoProgressBg.translationX = -widthAnimations.toFloat()
         lyRoundProgressBg.translationX = -widthAnimations.toFloat()
+
+        val tvReset: TextView = findViewById(R.id.tvReset)
+        tvReset.setOnClickListener {
+            resetClicked()
+        }
+    }
+
+    private fun resetClicked(){
+        resetVariablesRun()
+        resetTimeView()
+    }
+
+    private fun resetVariablesRun(){
+        timeInSeconds = 0
+        initStopWatch()
+    }
+
+    private fun resetTimeView(){
+
+        manageEnableButtonsRun(false, true)
+        //val btStart: LinearLayout = findViewById(R.id.btStart)
+        //btStart.background = getDrawable(R.drawable.circle_background_toplay)
+        tvChrono.setTextColor(ContextCompat.getColor(this, R.color.white))
     }
 }

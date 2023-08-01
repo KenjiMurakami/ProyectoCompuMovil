@@ -1328,7 +1328,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center|center"
-        android:background="@color/GrisTransparente">>
+        android:background="@color/GrisTransparente"
+        tools:ignore="ExtraText">>
 
         <!--
     android:translationX="400dp"
