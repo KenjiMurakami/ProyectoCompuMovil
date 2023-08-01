@@ -21,6 +21,7 @@ import com.example.proyectocompumovil.Utility.animateViewofInt
 import com.example.proyectocompumovil.Utility.getFormattedStopWatch
 import com.example.proyectocompumovil.Utility.getSecFromWatch
 import com.example.proyectocompumovil.Utility.setHeightLinearLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import me.tankery.lib.circularseekbar.CircularSeekBar
@@ -49,10 +50,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     //Variable para determinar si es que se pulso el botón
     private var starButtonClicked = false
 
-
     private var widthScreenPixels: Int = 0
     private var heightScreenPixels: Int = 0
     private var widthAnimations: Int = 0
+
     private lateinit var csbChallengeDistance: CircularSeekBar
     private lateinit var csbCurrentDistance: CircularSeekBar
     private lateinit var csbRecordDistance: CircularSeekBar
@@ -61,9 +62,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var csbCurrentSpeed: CircularSeekBar
     private lateinit var csbCurrentMaxSpeed: CircularSeekBar
     private lateinit var csbRecordSpeed: CircularSeekBar
+
     private lateinit var tvDistanceRecord: TextView
     private lateinit var tvAvgSpeedRecord: TextView
     private lateinit var tvMaxSpeedRecord: TextView
+
+    private lateinit var fbCamara: FloatingActionButton
+
     private lateinit var npDurationInterval: NumberPicker
     private lateinit var tvRunningTime: TextView
     private lateinit var tvWalkingTime: TextView
@@ -284,7 +289,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun manageRun(){
         if(timeInSeconds.toInt() == 0){
 
-
+            fbCamara.isVisible = true
+            //se bloquean solo para el inicio de la carrera
             swIntervalMode.isClickable = false
             npDurationInterval.isEnabled = false
             csbRunWalk.isEnabled = false
@@ -564,11 +570,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         tvReset.setOnClickListener {
             resetClicked()
         }
+        fbCamara = findViewById(R.id.fbCamera)
+        fbCamara.isVisible = false
     }
 
     private fun resetClicked(){
         resetVariablesRun()
         resetTimeView()
+        resetInterface()
     }
 
     private fun resetVariablesRun(){
@@ -582,5 +591,40 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //val btStart: LinearLayout = findViewById(R.id.btStart)
         //btStart.background = getDrawable(R.drawable.circle_background_toplay)
         tvChrono.setTextColor(ContextCompat.getColor(this, R.color.white))
+    }
+
+    private fun resetInterface(){
+        fbCamara.isVisible = false
+
+        val tvCurrentDistance: TextView = findViewById(R.id.tvCurrentDistance)
+        val tvCurrentAvgSpeed: TextView = findViewById(R.id.tvCurrentAvgSpeed)
+        val tvCurrentSpeed: TextView = findViewById(R.id.tvCurrentSpeed)
+        tvCurrentDistance.text = "0.0"
+        tvCurrentAvgSpeed.text = "0.0"
+        tvCurrentSpeed.text = "0.0"
+
+        tvDistanceRecord.setTextColor(ContextCompat.getColor(this, R.color.gray_dark))
+        tvAvgSpeedRecord.setTextColor(ContextCompat.getColor(this, R.color.gray_dark))
+        tvMaxSpeedRecord.setTextColor(ContextCompat.getColor(this, R.color.gray_dark))
+
+        csbCurrentDistance.progress = 0f
+        csbCurrentAvgSpeed.progress = 0f
+        csbCurrentSpeed.progress = 0f
+        csbCurrentMaxSpeed.progress = 0f
+        //una vez que reseteamos la interface
+        swIntervalMode.isClickable = true
+        npDurationInterval.isEnabled = true
+        csbRunWalk.isEnabled = true
+
+        val lyChronoProgressBg = findViewById<LinearLayout>(R.id.lyChronoProgressBg)
+        val lyRoundProgressBg = findViewById<LinearLayout>(R.id.lyRoundProgressBg)
+        lyChronoProgressBg.translationX = -widthAnimations.toFloat()
+        lyRoundProgressBg.translationX = -widthAnimations.toFloat()
+
+        swChallenges.isClickable = true
+        npChallengeDistance.isEnabled = true
+        npChallengeDurationHH.isEnabled = true
+        npChallengeDurationMM.isEnabled = true
+        npChallengeDurationSS.isEnabled = true
     }
 }
